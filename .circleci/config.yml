@@ -26,21 +26,11 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
-  #Adding commands
-  commands:
-    my_workflow:
-      description: "A very simple command for demonstration purposes"
-      parameters:
-        to:
-          type: string
-          default: "Hello World"
-      steps:
-        - run: echo << parameters.to >>
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  my_workflow:
+  save_hello_world_output:
     jobs:
       - save_hello_world_output
       - print_output_file:
